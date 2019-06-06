@@ -1,0 +1,13 @@
+{
+    "scripts":{ 
+        "start":"node node_server.js"
+    },
+    "name":"Pitanja",
+    "author": "Zdravko Sokcevic",
+    "dependencies": {
+        "body-parser":"1.19.0",
+        "mongoose":"5.5.13",
+        "express":"4.17.1",
+        "http":"^0.0.0"
+    }
+}
