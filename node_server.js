@@ -2,9 +2,11 @@ var http = require('http');
 var express = require('express');
 var MongoClient = require('mongoose');
 var bodyParser = require('body-parser');
+var cors=require('cors');
 var db = MongoClient.createConnection('mongodb://localhost/test', { useNewUrlParser: true });
 var app = express();
 app.use(bodyParser.json());
+app.use(cors);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(8900, '0.0.0.0');
 var Schema = MongoClient.Schema;
@@ -44,6 +46,8 @@ function vratiSve(res) {
             dbFind.push(data[x]);
         }
         var resData = JSON.stringify(dbFind);
+        // res.writeHead(200, {'Content-Type': 'application/json',
+        //             'Access-Control-Allow-Origin':'*'});
         res.write(resData);
         res.end();
     });
